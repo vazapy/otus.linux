@@ -1,0 +1,22 @@
+version '3'
+services
+  web
+    image nginxalpine
+    container_name web-master
+    ports [8080]
+    volumes
+      - .index.htmlusrsharenginxhtmlindex.htmlro
+  db
+    image mysql5.7
+    container_name db-master
+    environment
+      MYSQL_ROOT_PASSWORD root
+      MYSQL_DATABASE diplom_db
+      MYSQL_USER user
+      MYSQL_PASSWORD password
+    ports [33063306]
+    volumes
+      - .my.cnfetcmysqlmy.cnf
+      - db_datavarlibmysql
+volumes
+  db_data
