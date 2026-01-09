@@ -1,20 +1,20 @@
-version '3'
-services
-  web
-    image nginxalpine
-    container_name web-slave
-    ports [8080]
-    volumes
-      - .index.htmlusrsharenginxhtmlindex.htmlro
-  db
-    image mysql5.7
-    container_name db-slave
-    environment
-      MYSQL_ROOT_PASSWORD root
-      MYSQL_DATABASE diplom_db
-    ports [33063306]
-    volumes
-      - .my.cnfetcmysqlmy.cnf
-      - db_datavarlibmysql
-volumes
-  db_data
+version: '3'
+services:
+  web:
+    image: nginx:alpine
+    container_name: web-slave
+    ports: ["80:80"]
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+  db:
+    image: mysql:5.7
+    container_name: db-slave
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: diplom_db
+    ports: ["3306:3306"]
+    volumes:
+      - ./my.cnf:/etc/mysql/my.cnf
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
