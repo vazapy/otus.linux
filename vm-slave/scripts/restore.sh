@@ -34,7 +34,7 @@ echo "Позиция: $LOG_POS"
 echo "=== 3. Настраиваем репликацию ==="
 docker exec $SLAVE_CONTAINER mysql -u$DB_USER -p$DB_PASSWORD -e "STOP SLAVE;"
 docker exec $SLAVE_CONTAINER mysql -u$DB_USER -p$DB_PASSWORD -e "RESET SLAVE;"
-docker exec $SLAVE_CONTAINER mysql -u$DB_USER -p$DB_PASSWORD -e "CHANGE MASTER TO MASTER_HOST='$MASTER_HOST', MASTER_USER='user', MASTER_PASSWORD='password', MASTER_LOG_FILE='$LOG_FILE', MASTER_LOG_POS=$LOG_POS;"
+docker exec $SLAVE_CONTAINER mysql -u$DB_USER -p$DB_PASSWORD -e "CHANGE MASTER TO MASTER_HOST='$MASTER_HOST', MASTER_USER='root', MASTER_PASSWORD='root', MASTER_LOG_FILE='$LOG_FILE', MASTER_LOG_POS=$LOG_POS;"
 docker exec $SLAVE_CONTAINER mysql -u$DB_USER -p$DB_PASSWORD -e "START SLAVE;"
 
 echo "=== ГОТОВО! Статус репликации: ==="
