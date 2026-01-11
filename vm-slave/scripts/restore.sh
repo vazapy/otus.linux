@@ -26,7 +26,7 @@ echo "Configuring Master Host/User..."
 sudo docker exec db-slave mysql -u root -proot -e "CHANGE MASTER TO MASTER_HOST='$MASTER_HOST', MASTER_USER='$REPL_USER>
 
 # 3. Заливаем бэкап (Данные + Координаты)
-echo "Importing Dump (Data + Coordinates)..."
+echo "Importing Dump Data + Coordinates..."
 # -i (интерактивно) тут не нужно, используем перенаправление ввода <
 sudo docker exec -i db-slave mysql -u root -proot < "$BACKUP_FILE"
 
