@@ -33,7 +33,3 @@ sudo docker exec -i db-slave mysql -u root -proot < "$BACKUP_FILE"
 # 4. Запускаем Слейв
 echo "Starting Slave..."
 sudo docker exec db-slave mysql -u root -proot -e "START SLAVE;"
-
-# 5. Проверяем статус
-echo "=== STATUS ==="
-sudo docker exec db-slave mysql -u root -proot -e "SHOW SLAVE STATUS \G" | grep "Running:"
