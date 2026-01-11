@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Параметры подключения к Мастеру (они постоянные)
-MASTER_HOST="192.168.1.18"
+MASTER_HOST="192.168.1.23"
 REPL_USER="repl_user"
 REPL_PASSWORD="slave_pass"
 
